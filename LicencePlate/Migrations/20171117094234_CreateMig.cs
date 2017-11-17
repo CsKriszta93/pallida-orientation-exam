@@ -5,32 +5,32 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace LicencePlate.Migrations
 {
-    public partial class CreateMigration : Migration
+    public partial class CreateMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "LicencePlates",
+                name: "licence_plates",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Car_brand = table.Column<string>(nullable: true),
-                    Car_model = table.Column<string>(nullable: true),
-                    Color = table.Column<string>(nullable: true),
-                    Plate = table.Column<string>(nullable: true),
-                    Year = table.Column<int>(nullable: false)
+                    car_brand = table.Column<string>(nullable: true),
+                    car_model = table.Column<string>(nullable: true),
+                    color = table.Column<string>(nullable: true),
+                    plate = table.Column<string>(nullable: true),
+                    year = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LicencePlates", x => x.Id);
+                    table.PrimaryKey("PK_licence_plates", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "LicencePlates");
+                name: "licence_plates");
         }
     }
 }

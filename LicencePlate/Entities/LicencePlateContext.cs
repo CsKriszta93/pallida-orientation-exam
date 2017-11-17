@@ -13,6 +13,6 @@ namespace LicencePlate.Entities
         {
         }
 
-        DbSet<LicencePlateClass>LicencePlates { get; set; }
+        DbSet<LicencePlateClass> licence_plates { get; set; }
     }
 }

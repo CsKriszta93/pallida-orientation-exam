@@ -8,8 +8,8 @@ using LicencePlate.Entities;
 namespace LicencePlate.Migrations
 {
     [DbContext(typeof(LicencePlateContext))]
-    [Migration("20171117092738_CreateMigration")]
-    partial class CreateMigration
+    [Migration("20171117094234_CreateMig")]
+    partial class CreateMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,22 +19,22 @@ namespace LicencePlate.Migrations
 
             modelBuilder.Entity("LicencePlate.Models.LicencePlateClass", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Car_brand");
+                    b.Property<string>("car_brand");
 
-                    b.Property<string>("Car_model");
+                    b.Property<string>("car_model");
 
-                    b.Property<string>("Color");
+                    b.Property<string>("color");
 
-                    b.Property<string>("Plate");
+                    b.Property<string>("plate");
 
-                    b.Property<int>("Year");
+                    b.Property<int>("year");
 
                     b.HasKey("Id");
 
-                    b.ToTable("LicencePlates");
+                    b.ToTable("licence_plates");
                 });
         }
     }
