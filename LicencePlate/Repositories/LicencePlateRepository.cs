@@ -50,5 +50,14 @@ namespace LicencePlate.Repositories
                                select plate;
             return diplomatCars.ToList();
         }
+
+        public List<LicencePlateClass> SameBrand(LicencePlateClass brand)
+        {
+            var sameBrand = from cars in LicencePlateContext.licence_plates
+                            where cars.car_brand.Equals(brand)
+                            select cars;
+
+            return sameBrand.ToList();         
+        }
     }
 }
