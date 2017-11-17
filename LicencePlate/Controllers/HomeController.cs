@@ -33,7 +33,7 @@ namespace LicencePlate.Controllers
         }
 
         [HttpGet]
-        [Route("search/diplomat")]
+        [Route("/search/diplomat")]
         public IActionResult DiplomatCars()
         {
             return View(LicencePlateRepository.OnlyDiplomats());
@@ -41,7 +41,18 @@ namespace LicencePlate.Controllers
 
         [HttpGet]
         [Route("/api/search/{brand}")]
-        public IActionResult Brands([FromBody] LicencePlateClass brand)
+        public IActionResult ApiBrands([FromBody] LicencePlateClass brand)
+        {
+            var brands = LicencePlateRepository.SameBrand(brand);
+            foreach (var car in brands)
+            {
+                return Json(new { plate = car.plate, car_brand = car.car_brand, car_model = car.car_model, year = car.year, color = car.color });
+            }     
+        }    
+
+        [HttpGet]
+        [Route("/search/{brand}")]
+        public IActionResult Brands(LicencePlateClass brand)
         {
             return View(LicencePlateRepository.SameBrand(brand));
         }
