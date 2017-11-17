@@ -19,7 +19,7 @@ namespace LicencePlate.Controllers
         }
         [HttpGet]
         [Route("")]
-        public IActionResult Index()
+        public IActionResult Search()
         {
             return View();
         }
