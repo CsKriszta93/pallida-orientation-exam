@@ -23,5 +23,12 @@ namespace LicencePlate.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [Route("/result")]
+        public IActionResult SearchResult(string licenceplate)
+        {
+            return View();
+        }
     }
 }
