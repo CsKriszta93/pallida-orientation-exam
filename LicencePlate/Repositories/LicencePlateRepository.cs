@@ -21,6 +21,12 @@ namespace LicencePlate.Repositories
             return LicencePlateContext.licence_plates.ToList();
         }
 
+        public LicencePlateClass GetById(long id)
+        {
+            var plate = LicencePlateContext.licence_plates.FirstOrDefault(p => p.Id == id);
+            return plate;
+        }
+
         public LicencePlateClass GetLicencePlate(string licenceplate)
         {
             var selected = (from plate in LicencePlateContext.licence_plates
