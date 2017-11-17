@@ -10,17 +10,27 @@ using Microsoft.Extensions.Logging;
 using LicencePlate.Entities;
 using Microsoft.EntityFrameworkCore;
 using LicencePlate.Repositories;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace LicencePlate
 {
     public class Startup
     {
+        public static IConfigurationRoot Configuration { get; set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+
             services.AddMvc();
-            services.AddDbContext<LicencePlateContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<LicencePlateContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:LicencePlateConnection"]));
             services.AddScoped<LicencePlateRepository>();
         }
 
