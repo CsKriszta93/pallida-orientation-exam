@@ -35,12 +35,20 @@ namespace LicencePlate.Repositories
             return selected.ToList();
         }
 
-        public List<LicencePlateClass> OnlyPoliceCars(string licenceplate)
+        public List<LicencePlateClass> OnlyPoliceCars()
         {
             var policeCars = from plate in LicencePlateContext.licence_plates
                              where plate.plate.StartsWith("RB")
                              select plate;
             return policeCars.ToList();
+        }
+
+        public List<LicencePlateClass> OnlyDiplomats()
+        {
+            var diplomatCars = from plate in LicencePlateContext.licence_plates
+                               where plate.plate.StartsWith("DT")
+                               select plate;
+            return diplomatCars.ToList();
         }
     }
 }
