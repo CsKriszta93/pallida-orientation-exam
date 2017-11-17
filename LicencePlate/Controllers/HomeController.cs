@@ -19,9 +19,23 @@ namespace LicencePlate.Controllers
         }
         [HttpGet]
         [Route("")]
-        public IActionResult Search()
+        public IActionResult Search(string input)
         {
             return View();
+        }
+
+        [HttpGet]
+        [Route("search/police")]
+        public IActionResult PoliceCars()
+        {
+            return View(LicencePlateRepository.OnlyPoliceCars());
+        }
+
+        [HttpGet]
+        [Route("search/diplomat")]
+        public IActionResult DiplomatCars()
+        {
+            return View(LicencePlateRepository.OnlyDiplomats());
         }
 
         [HttpPost]

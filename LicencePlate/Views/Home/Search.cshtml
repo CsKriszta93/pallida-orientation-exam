@@ -1,4 +1,14 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
+﻿@*@{ 
+    var result = "";
+    string errorMessage = "Sorry, the submitted licence plate is not valid.";
+
+    if (result == null || result.Any(x => !char.IsLetter(x) || result.Any(y => !char.IsNumber(y) || !result.Contains('-'))))
+    {
+        (errorMessage);
+    }
+}*@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
 </head>
