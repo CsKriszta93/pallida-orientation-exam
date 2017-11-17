@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LicencePlate.Models
 {
-    public class LicencePlate
+    public class LicencePlateClass
     {
         public int Id { get; set; }
         public string Plate { get; set; }

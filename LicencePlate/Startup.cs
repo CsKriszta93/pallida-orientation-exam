@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using LicencePlate.Entities;
+using Microsoft.EntityFrameworkCore;
+using LicencePlate.Repositories;
 
 namespace LicencePlate
 {
@@ -17,6 +20,8 @@ namespace LicencePlate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<LicencePlateContext>(options => options.UseSqlServer(connectionString));
+            services.AddScoped<LicencePlateRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
