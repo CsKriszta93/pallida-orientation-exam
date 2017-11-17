@@ -28,7 +28,7 @@ namespace LicencePlate.Controllers
         [Route("/result")]
         public IActionResult SearchResult(string licenceplate)
         {
-            return View();
+            return View(LicencePlateRepository.GetLicencePlate(licenceplate));
         }
     }
 }

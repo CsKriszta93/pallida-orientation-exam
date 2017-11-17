@@ -27,12 +27,12 @@ namespace LicencePlate.Repositories
             return plate;
         }
 
-        public LicencePlateClass GetLicencePlate(string licenceplate)
+        public List<LicencePlateClass> GetLicencePlate(string licenceplate)
         {
-            var selected = (from plate in LicencePlateContext.licence_plates
-                            where plate.plate.Contains(licenceplate)
-                            select plate).FirstOrDefault();
-            return selected;
+            var selected = from plate in LicencePlateContext.licence_plates
+                           where plate.plate.Contains(licenceplate)
+                           select plate;
+            return selected.ToList();
         }
     }
 }

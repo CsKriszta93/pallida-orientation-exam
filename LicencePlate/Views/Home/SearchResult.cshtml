@@ -1,0 +1,29 @@
+﻿@model List<LicencePlate.Models.LicencePlateClass>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>RESULTS:</h1>
+    <table>
+        <tr>
+            <th>Licence plate</th>
+            <th>Brand</th>  
+            <th>Model</th>
+            <th>Color</th>
+            <th>Year</th>
+        </tr>
+        @foreach (var plate in Model)
+        {
+            <tr>
+                <td>@plate.plate</td>
+                <td>@plate.car_brand</td>
+                <td>@plate.car_model</td>
+                <td>@plate.color</td>
+                <td>@plate.year</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
